@@ -43,5 +43,5 @@ Beispiele Podcast:
 * Nur Spiele mit Eintracht Frankfurt (auch im DFB-Pokal...äh...ach nee), aber vom Prinzíp her: https://livecenter-sportschau-de.appspot.com/livestreams/podcast?team=Eintracht+Frankfurt
 
 Beispiele HTTP-Redirect:
-* Das aktuelle Spiel des 1. FC Köln:  https://livecenter-sportschau-de.appspot.com/livestreams/redirect?team=1.+FC+Köln
-* Die Bundesliga-Spiele als Konferenz: https://livecenter-sportschau-de.appspot.com/livestreams/redirect?comp=Bundesliga (Hinweis: Sonderfall - hier wird ein fehlender team-Filter als "nehme die Konferenz" interpretiert) 
+* Das tagesaktuelle Spiel des 1. FC Köln:  https://livecenter-sportschau-de.appspot.com/livestreams/redirect?team=1.+FC+Köln
+* Die Bundesliga-Spiele für ein bestimmtes Datum als Konferenz: https://livecenter-sportschau-de.appspot.com/livestreams/redirect?date=2021-09-25&comp=Bundesliga (Hinweis: Sonderfall - hier wird ein fehlender team-Filter als "nehme die Konferenz" interpretiert) 
