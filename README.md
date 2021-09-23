@@ -48,6 +48,7 @@ Beispiele HTTP-Redirect:
 
 ## FAQ ##
 
+* Wenn ich auf den Link ganz oben klicke, lande ich wieder auf dieser Seite - was mache ich falsch? Nun, ich wollte für meine Lösung keine UI implementieren, also werden nur die konkreten Podcast und Redirect Aufrufe implementiert. Alle anderen Aufrufe landen entweder hier auf Github oder münden in einem HTTP 404 (nicht gefunden).
 * Warum kriege ich keine Ergebnisse, auch ganz ohne "team" oder "comp" Filter? Vermutlich, weil *heute* gar keine Spiele mit Livestreams angesetzt sind. Leider ist die Sportschau-Seite tagesweise aufgebaut und man kann nicht (oder zumindest nicht einfach) "zeig mir das nächste Spiel" (auch wenn das erst in X Tagen ist) an umsetzen; vielleicht implementiere ich das aber noch. Mal sehen...
 * Warum funktioniert das überhaupt nicht mehr? Hmmm...zwei Möglichkeiten:
   * Wenn das in naher Zukunft passiert (aus September 2021er Sicht), dann ist vielleicht mein kostenlos-Kontingent bei Google-App-Engine aufgebraucht; das würde bedeuten es nutzen SEHR VIELE Leute den Dienst...das wäre cool (ausser natürlich, dass das nicht mehr funktioniert...sorry dafür).
