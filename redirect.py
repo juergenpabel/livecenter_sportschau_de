@@ -34,7 +34,7 @@ def do_redirect(url, html, filter_date, filter_comp, filter_team):
 							team_away = team_away.text
 							game_live = element.get("data-audiolivestream")
 							if game_live is not None:
-								if filter_team is None or (filter_team in team_home or filter_team in team_away): # full game
+								if filter_team is None or (filter_team == team_home or filter_team == team_away): # full game
 									location = game_live
 	return location
 

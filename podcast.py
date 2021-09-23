@@ -53,7 +53,7 @@ def do_podcast(url, html, filter_date, filter_comp, filter_team):
 					game_info = element.find( "div[@class='match-more']/a" ).get("href")
 					game_live = element.get("data-audiolivestream")
 					if game_live is not None:
-						if filter_team is None or (filter_team in team_home or filter_team in team_away): # full game
+						if filter_team is None or (filter_team == team_home or filter_team == team_away): # full game
 							fe = fg.add_entry()
 							fe.id( game_live )
 							fe.title( team_home + " - " + team_away )
