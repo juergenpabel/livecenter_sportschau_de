@@ -45,3 +45,10 @@ Beispiele Podcast:
 Beispiele HTTP-Redirect:
 * Das tagesaktuelle Spiel des 1. FC Köln:  https://livecenter-sportschau-de.appspot.com/livestreams/redirect?team=1.+FC+Köln
 * Die Bundesliga-Spiele für ein bestimmtes Datum als Konferenz: https://livecenter-sportschau-de.appspot.com/livestreams/redirect?date=2021-09-25&comp=Bundesliga (Hinweis: Sonderfall - hier wird ein fehlender team-Filter als "nehme die Konferenz" interpretiert) 
+
+## FAQ ##
+
+* Warum kriege ich keine Ergebnisse, auch ganz ohne "team" oder "comp" Filter? Vermutlich, weil *heute* gar keine Spiele mit Livestreams angesetzt sind. Leider ist die Sportschau-Seite tagesweise aufgebaut und man kann nicht (oder zumindest nicht einfach) "zeig mir das nächste Spiel" an umsetzen; vielleicht implementiere ich das aber noch. Mal sehen..
+* Warum funktioniert das überhaupt nicht mehr? Hmmm...zwei Möglichkeiten:
+  * Wenn das in naher Zukunft passiert (aus September 2021er Sicht), dann ist vielleicht kein kostenlos-Kontingent bei Google-App-Engine aufgebraucht; das würde bedeuten es nutzen SEHR VIELE Leute den Dienst...das wäre cool (ausser natürlich, dass das nicht mehr funktioniert...sorry dafür).
+  * Wenn wir in deutlichen Zukunft liegen (aus September 2021er Sicht), dann vermutlich weil Google-App-Engine kein Python 3.9 mehr unterstützt und ich das Programm nicht auf eine dann unterstützte Python Version migriert habe.
