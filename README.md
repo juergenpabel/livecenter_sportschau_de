@@ -40,7 +40,7 @@ Sowohl die Generierung der Podcast-Feeds als auch die der HTTP redirects kann ü
 Beispiele Podcast:
 * Nur 1. Bundesliga-Spiele im Podcast auflisten: https://livecenter-sportschau-de.appspot.com/livestreams/podcast?comp=Bundesliga
 * Nur 2. Bundesliga-Spiele im Podcast auflisten: https://livecenter-sportschau-de.appspot.com/livestreams/podcast?comp=2.+Bundesliga
-* Nur Spiele mit Eintracht Frankfurt (auch im DFB-Pokal...äh...auch nee), aber vom Prinzíp her: https://livecenter-sportschau-de.appspot.com/livestreams/podcast?team=Eintracht+Frankfurt
+* Nur Spiele mit Eintracht Frankfurt (auch im DFB-Pokal...äh...ach nee), aber vom Prinzíp her: https://livecenter-sportschau-de.appspot.com/livestreams/podcast?team=Eintracht+Frankfurt
 
 Beispiele HTTP-Redirect:
 * Das aktuelle Spiel des 1. FC Köln:  https://livecenter-sportschau-de.appspot.com/livestreams/redirect?team=1.+FC+Köln
