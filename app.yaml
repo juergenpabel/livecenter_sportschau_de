@@ -10,6 +10,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+automatic_scaling:
+  min_idle_instances: automatic
+  max_idle_instances: 1
+  min_pending_latency: automatic
+  max_pending_latency: 0.100s
+  max_instances: 1
+
 runtime: python39
 
 # [START handlers]
