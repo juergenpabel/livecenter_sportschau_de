@@ -3,8 +3,8 @@
 **This is in german, because the provided content is in german**
 
 ## tl;dr ##
-* Auf http://livecenter-sportschau-de.appspot.com/livestreams/podcast gibt es die Livestreams als Podcast bereitgestellt.
-* Auf http://livecenter-sportschau-de.appspot.com/livestreams/redirect gibt es HTTP redirects (HTTP 302) für einzelne Livestreams.
+* Auf https://livecenter-sportschau-de.appspot.com/livestreams/podcast gibt es die tagesaktuellen Livestreams als Podcast bereitgestellt.
+* Auf https://livecenter-sportschau-de.appspot.com/livestreams/redirect gibt es HTTP redirects (HTTP 302) für einzelne  tagesaktuelle Livestreams.
 Wie das konkret genutzt werden kann wird im Abschnitt "How-To" weiter unten beschrieben.
 
 ## Einführung ##
@@ -17,12 +17,13 @@ Für die Nutzung per Browser (oder wohl auch per Sportschau App, aber nicht selb
 * Die Webseite ist (bzw. war mit Stand September 2021) nicht XHTML konform, so dass eine Transformation per XSLT nicht möglich war
 * Die HTML Struktur der Daten-Elemente, die die eigentlichen Spielinformationen ausmachen und die Links auf die Livestreams enthalten ist...sagen wir mal....ungewöhnlich (im Sinne von HTML oder XML oder auch genenrell programmiertechnischer Konstrukte);
 * Die auf der Webseite angebotenen RSS Feeds haben auch nicht auf die direkten Livestreams verwiesen, sondern wieder nur auf die Browser-Seiten
+
 **Kurzum: Eine Verwendung außerhalb von Web-Browser und Sportschau-App war nicht möglich.**
 
 Was sind Beispiele für solche andersartigen Verwendungsszenarien?
-* Immer die (aktuelle) Bundesliga-Konferenz auf einem Sound-System abspielen: https://livecenter-sportschau-de.appspot.com/livestreams/redirect?comp=Bundesliga
-* Immer das (aktuelle) Spiel mit Eintracht Frankfurt auf einem Sound-System abspielen: https://livecenter-sportschau-de.appspot.com/livestreams/redirect?team=Eintracht+Frankfurt
-* Ein (aktuelles) Spiel aus der 2. Bundesliga per Podcast-Client auswählen/anhören: https://livecenter-sportschau-de.appspot.com/livestreams/podcast?comp=2.+Bundesliga
+* Immer die (tagesaktuelle) Bundesliga-Konferenz auf einem Sound-System abspielen: https://livecenter-sportschau-de.appspot.com/livestreams/redirect?comp=Bundesliga
+* Immer das (tagesaktuelle) Spiel mit Eintracht Frankfurt auf einem Sound-System abspielen: https://livecenter-sportschau-de.appspot.com/livestreams/redirect?team=Eintracht+Frankfurt
+* Ein (tagesaktuelles) Spiel aus der 2. Bundesliga per Podcast-Client auswählen/anhören: https://livecenter-sportschau-de.appspot.com/livestreams/podcast?comp=2.+Bundesliga
 
 ## Lösung ##
 
@@ -50,6 +51,7 @@ Beispiele HTTP-Redirect:
 
 * Wenn ich auf den Link ganz oben klicke, lande ich wieder auf dieser Seite - was mache ich falsch? Nun, ich wollte für meine Lösung keine UI implementieren, also werden nur die konkreten Podcast und Redirect Aufrufe implementiert. Alle anderen Aufrufe landen entweder hier auf Github oder münden in einem HTTP 404 (nicht gefunden).
 * Warum kriege ich keine Ergebnisse, auch ganz ohne "team" oder "comp" Filter? Vermutlich, weil *heute* gar keine Spiele mit Livestreams angesetzt sind. Leider ist die Sportschau-Seite tagesweise aufgebaut und man kann nicht (oder zumindest nicht einfach) "zeig mir das nächste Spiel" (auch wenn das erst in X Tagen ist) an umsetzen; vielleicht implementiere ich das aber noch. Mal sehen...
-* Warum funktioniert das überhaupt nicht mehr? Hmmm...zwei Möglichkeiten:
+* Warum funktioniert das überhaupt nicht mehr? Hmmm...drei Möglichkeiten:
+  * Die Struktur der Webseite der Sportschau wurde geändert und passt nicht mehr zu der hier implementierten Verarbeitungslogik. Da müsste mal jemand das Programm hier anpassen...
   * Wenn das in naher Zukunft passiert (aus September 2021er Sicht), dann ist vielleicht mein kostenlos-Kontingent bei Google-App-Engine aufgebraucht; das würde bedeuten es nutzen SEHR VIELE Leute den Dienst...das wäre cool (ausser natürlich, dass das nicht mehr funktioniert...sorry dafür).
-  * Wenn wir in deutlichen Zukunft liegen (aus September 2021er Sicht), dann vermutlich weil Google-App-Engine kein Python 3.9 mehr unterstützt und ich das Programm nicht auf eine dann unterstützte Python Version migriert habe.
+  * Wenn das in deutlicher Zukunft passiert (aus September 2021er Sicht), dann vermutlich weil Google-App-Engine kein Python 3.9 mehr unterstützt und ich das Programm (noch) nicht auf eine dann unterstützte Python Version migriert habe.
