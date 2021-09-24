@@ -5,7 +5,7 @@
 ## tl;dr ##
 * Auf https://livecenter-sportschau-de.appspot.com/livestreams/podcast gibt es die tagesaktuellen Livestreams als Podcast bereitgestellt.
 * Auf https://livecenter-sportschau-de.appspot.com/livestreams/redirect gibt es HTTP redirects (HTTP 302) für einzelne  tagesaktuelle Livestreams.
-Wie das konkret genutzt werden kann wird im Abschnitt "How-To" weiter unten beschrieben.
+Wie das konkret genutzt werden kann wird im Abschnitt "HOWTO" weiter unten beschrieben.
 
 ## Einführung ##
 
