@@ -8,6 +8,7 @@ import re
 import lxml.html
 from lxml.cssselect import CSSSelector
 from feedgen.feed import FeedGenerator
+from email.utils import formatdate
 
 
 def do_podcast(url, html, filter_date, filter_comp, filter_team):
@@ -21,6 +22,8 @@ def do_podcast(url, html, filter_date, filter_comp, filter_team):
 
 
 	gameplan = lxml.html.fromstring( html ).find_class( "module-gameplan" )
+	pubdate = formatdate(float(datetime.datetime.now().replace(hour=0,minute=0,second=0,microsecond=0).strftime('%s')), localtime=True)
+
 
 	current_comp = None
 	current_round = None
@@ -38,9 +41,10 @@ def do_podcast(url, html, filter_date, filter_comp, filter_team):
 					conf_live = element.find(".//div[@class='match-activity']").get("data-audiolivestream")
 					conf_info = element.find(".//a[@class='hs-conference-link']").get("href")
 					fe = fg.add_entry()
-					fe.id( conf_live )
+					fe.id( url + conf_info )
 					fe.title( conf_name )
 					fe.description( conf_name )
+					fe.published( pubdate )
 					fe.link( href=url + conf_info )
 					fe.enclosure( conf_live, 0, "audio/mpeg" )
 		if re.search(r"\bmatch\b", classes):
@@ -55,9 +59,10 @@ def do_podcast(url, html, filter_date, filter_comp, filter_team):
 					if game_live is not None:
 						if filter_team is None or (filter_team == team_home or filter_team == team_away): # full game
 							fe = fg.add_entry()
-							fe.id( game_live )
+							fe.id( url + game_info )
 							fe.title( team_home + " - " + team_away )
 							fe.description( current_comp + ", " + current_round + ": " + team_home + " - " + team_away )
+							fe.published( pubdate )
 							fe.link( href=url + game_info )
 							fe.enclosure( game_live, 0, "audio/mpeg" )
 
