@@ -35,6 +35,7 @@ Sowohl die Generierung der Podcast-Feeds als auch die der HTTP redirects kann ü
 * **date**: Für welches Datum, z.B. "2021-09-25"; wenn weggelassen, dann immer das tagesaktuelle Datum
 * **comp**: Welcher Wettbewerb, z.B. "Bundesliga" oder "2. Bundesliga" (ohne Anführungszeichen)
 * **team**: Welches Team, z.B. "Eintracht Frankfurt" oder "1. FC Köln" (ohne Anführungszeichen)
+
 Der Titel des generierten Podcast-Feeds kann auch per "title" Parameter mitgegeben werden. Ansonsten wird als Standardwert "Sportschau Livecenter" genommen.
 
 
