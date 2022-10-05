@@ -34,7 +34,7 @@ def do_podcast(self, url, html, podcast_title, filter_date, filter_comp, filter_
 			current_round = element.find(".//div[@class='match-round']").text
 		if re.search(r"\bactivity-head\b", classes):
 			if filter_comp is None or filter_comp == current_comp:
-				if filter_team is None and element.find(".//div[@class='match-activity']") is not None: # conference
+				if (filter_team is None or filter_team.lower() == 'konferenz') and element.find(".//div[@class='match-activity']") is not None: # conference
 					conf_name = element.find(".//div[@class='match-activity']").get("data-audiolivestream_title")
 					conf_live = element.find(".//div[@class='match-activity']").get("data-audiolivestream")
 					conf_info = element.find(".//a[@class='hs-conference-link']").get("href")

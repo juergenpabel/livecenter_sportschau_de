@@ -21,7 +21,7 @@ Für die Nutzung per Browser (oder wohl auch per Sportschau App, aber nicht selb
 **Kurzum: Eine Verwendung außerhalb von Web-Browser und Sportschau-App war nicht möglich.**
 
 Was sind Beispiele für solche andersartigen Verwendungsszenarien?
-* Immer die (tagesaktuelle) Bundesliga-Konferenz auf einem Sound-System abspielen: https://livecenter-sportschau-de.appspot.com/livestreams/redirect?comp=Bundesliga
+* Immer die (tagesaktuelle) Bundesliga-Konferenz auf einem Sound-System abspielen: https://livecenter-sportschau-de.appspot.com/livestreams/redirect?comp=Bundesliga&team=Konferenz
 * Immer das (tagesaktuelle) Spiel mit Eintracht Frankfurt auf einem Sound-System abspielen: https://livecenter-sportschau-de.appspot.com/livestreams/redirect?team=Eintracht+Frankfurt
 * Ein (tagesaktuelles) Spiel aus der 2. Bundesliga per Podcast-Client auswählen/anhören: https://livecenter-sportschau-de.appspot.com/livestreams/podcast?comp=2.+Bundesliga
 
@@ -34,7 +34,7 @@ Auf Google AppEngine läuft eine kleine Python-Anwendung (deren Quelltext in die
 Sowohl die Generierung der Podcast-Feeds als auch die der HTTP redirects kann über folgende HTTP GET Parameter gefiltert werden:
 * **date**: Für welches Datum, z.B. "2021-09-25"; wenn weggelassen, dann immer das tagesaktuelle Datum
 * **comp**: Welcher Wettbewerb, z.B. "Bundesliga" oder "2. Bundesliga" (ohne Anführungszeichen)
-* **team**: Welches Team, z.B. "Eintracht Frankfurt" oder "1. FC Köln" (ohne Anführungszeichen)
+* **team**: Welches Team, z.B. "Eintracht Frankfurt" oder "1. FC Köln" (ohne Anführungszeichen) - oder "Konferenz" für nur Konferenz-Übertragungen
 
 Der Titel des generierten Podcast-Feeds kann auch per "title" Parameter mitgegeben werden. Ansonsten wird als Standardwert "Sportschau Livecenter" genommen.
 
@@ -48,7 +48,7 @@ Beispiele Podcast:
 
 Beispiele HTTP-Redirect:
 * Das tagesaktuelle Spiel des 1. FC Köln:  https://livecenter-sportschau-de.appspot.com/livestreams/redirect?team=1.+FC+Köln
-* Die Bundesliga-Spiele für ein bestimmtes Datum als Konferenz: https://livecenter-sportschau-de.appspot.com/livestreams/redirect?date=2021-09-25&comp=Bundesliga (Hinweis: Sonderfall - hier wird ein fehlender team-Filter als "nehme die Konferenz" interpretiert) 
+* Die Bundesliga-Spiele für ein bestimmtes Datum als Konferenz: https://livecenter-sportschau-de.appspot.com/livestreams/redirect?date=2021-09-25&comp=Bundesliga&team=Konferenz
 
 ## FAQ ##
 
