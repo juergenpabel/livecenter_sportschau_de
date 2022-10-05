@@ -38,13 +38,14 @@ def do_podcast(self, url, html, podcast_title, filter_date, filter_comp, filter_
 					conf_name = element.find(".//div[@class='match-activity']").get("data-audiolivestream_title")
 					conf_live = element.find(".//div[@class='match-activity']").get("data-audiolivestream")
 					conf_info = element.find(".//a[@class='hs-conference-link']").get("href")
-					fe = fg.add_entry()
-					fe.id(url + conf_info)
-					fe.title(conf_name)
-					fe.description(conf_name)
-					fe.published(pubdate)
-					fe.link(href=url + conf_info)
-					fe.enclosure(conf_live, 0, "audio/mpeg")
+					if conf_name and conf_live and conf_info:
+						fe = fg.add_entry()
+						fe.id(url + conf_info)
+						fe.title(conf_name)
+						fe.description(conf_name)
+						fe.published(pubdate)
+						fe.link(href=url + conf_info)
+						fe.enclosure(conf_live, 0, "audio/mpeg")
 		if re.search(r"\bmatch\b", classes):
 			if filter_comp is None or filter_comp == current_comp:
 				team_home = element.find("div[@class='team-name team-name-home']")

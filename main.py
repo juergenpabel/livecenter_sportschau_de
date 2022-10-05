@@ -25,7 +25,7 @@ from podcast import do_podcast
 from redirect import do_redirect
 
 app = Flask(__name__)
-url = "https://livecenter.sportschau.de"
+url = "https://www.sportschau.de/live-und-ergebnisse"
 
 
 def fetch_html(date):
