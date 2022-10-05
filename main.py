@@ -39,12 +39,13 @@ def index():
 
 @app.route('/livestreams/podcast', methods=['GET'])
 def podcast():
+	podcast_title = flask_request.args.get("title", default="Sportschau Livecenter", type=str)
 	filter_date = flask_request.args.get("date", default=datetime.date.today().strftime("%Y-%m-%d"), type=str)
 	filter_comp = flask_request.args.get("comp", default=None, type=str)
 	filter_team = flask_request.args.get("team", default=None, type=str)
 
 	html = fetch_html(filter_date)
-	xml = do_podcast(url, html, filter_date, filter_comp, filter_team)
+	xml = do_podcast(flask_request.url, url, html, podcast_title, filter_date, filter_comp, filter_team)
 	return flask_response(xml, mimetype='text/xml')
 
 @app.route('/livestreams/redirect', methods=['GET'])
@@ -54,7 +55,7 @@ def redirect():
 	filter_team = flask_request.args.get("team", default=None, type=str)
 
 	html = fetch_html(filter_date)
-	location = do_redirect(url, html, filter_date, filter_comp, filter_team)
+	location = do_redirect(html, filter_date, filter_comp, filter_team)
 	if location is None:
 		return flask_abort(404)
 	return flask_redirect(location, 302)

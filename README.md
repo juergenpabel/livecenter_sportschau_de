@@ -35,13 +35,15 @@ Sowohl die Generierung der Podcast-Feeds als auch die der HTTP redirects kann ü
 * **date**: Für welches Datum, z.B. "2021-09-25"; wenn weggelassen, dann immer das tagesaktuelle Datum
 * **comp**: Welcher Wettbewerb, z.B. "Bundesliga" oder "2. Bundesliga" (ohne Anführungszeichen)
 * **team**: Welches Team, z.B. "Eintracht Frankfurt" oder "1. FC Köln" (ohne Anführungszeichen)
+Der Titel des generierten Podcast-Feeds kann auch per "title" Parameter mitgegeben werden. Ansonsten wird als Standardwert "Sportschau Livecenter" genommen.
+
 
 **WICHTIG**: Sowohl für die Podcast-Generierung als auch dir HTTP-redirect Generierung wird die gleiche Filter-Logik angewendet, aber: in den Podcasts werden alle gefilterten Livestreams aufgeführt - beim HTTP-redirect führt aber der erstbeste Treffer direkt zum Livestream. Hier ist also eine konkrete Parametrisierung wichtig.
 
 Beispiele Podcast:
-* Nur 1. Bundesliga-Spiele im Podcast auflisten: https://livecenter-sportschau-de.appspot.com/livestreams/podcast?comp=Bundesliga
-* Nur 2. Bundesliga-Spiele im Podcast auflisten: https://livecenter-sportschau-de.appspot.com/livestreams/podcast?comp=2.+Bundesliga
-* Nur Spiele mit Eintracht Frankfurt (auch im DFB-Pokal...äh...ach nee), aber vom Prinzíp her: https://livecenter-sportschau-de.appspot.com/livestreams/podcast?team=Eintracht+Frankfurt
+* Nur 1. Bundesliga-Spiele im Podcast auflisten: https://livecenter-sportschau-de.appspot.com/livestreams/podcast?comp=Bundesliga&title=Sportschau:+Bundesliga
+* Nur 2. Bundesliga-Spiele im Podcast auflisten: https://livecenter-sportschau-de.appspot.com/livestreams/podcast?comp=2.+Bundesliga&title=Sportschau:+2.+Bundesliga
+* Nur Spiele mit Eintracht Frankfurt (egal in welchem Wettbewerb): https://livecenter-sportschau-de.appspot.com/livestreams/podcast?team=Eintracht+Frankfurt&title=Eintracht+Frankfurt
 
 Beispiele HTTP-Redirect:
 * Das tagesaktuelle Spiel des 1. FC Köln:  https://livecenter-sportschau-de.appspot.com/livestreams/redirect?team=1.+FC+Köln

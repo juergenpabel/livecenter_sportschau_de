@@ -11,14 +11,14 @@ from feedgen.feed import FeedGenerator
 from email.utils import formatdate
 
 
-def do_podcast(url, html, filter_date, filter_comp, filter_team):
+def do_podcast(self, url, html, podcast_title, filter_date, filter_comp, filter_team):
 	fg = FeedGenerator()
 	fg.generator( "python" )
 	fg.load_extension( "podcast" )
-	fg.title( "Sportschau Livestreams" )
+	fg.title( podcast_title )
 	fg.podcast.itunes_category( "Sports" )
 	fg.description( "Applied filters: date=%s competition=%s team=%s" % (filter_date, filter_comp, filter_team) )
-	fg.link( href=url, rel="self" )
+	fg.link( href=self, rel="self" )
 
 
 	gameplan = lxml.html.fromstring( html ).find_class( "module-gameplan" )

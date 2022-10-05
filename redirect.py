@@ -4,7 +4,7 @@ import re
 import lxml.html
 from lxml.cssselect import CSSSelector
 
-def do_redirect(url, html, filter_date, filter_comp, filter_team):
+def do_redirect(html, filter_date, filter_comp, filter_team):
 	current_comp = None
 	current_round = None
 	current_game = None
