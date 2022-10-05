@@ -10,8 +10,8 @@ def do_redirect(html, filter_date, filter_comp, filter_team):
 	current_game = None
 	location = None
 
-	gameplan = lxml.html.fromstring( html ).find_class( "module-gameplan" )
-	for element in gameplan[0].find( "div" ):
+	gameplan = lxml.html.fromstring(html).find_class("module-gameplan")
+	for element in gameplan[0].find("div"):
 		if location is None:
 			classes = element.get("class")
 			if re.search(r"\bcompetition-head\b", classes):
@@ -27,8 +27,8 @@ def do_redirect(html, filter_date, filter_comp, filter_team):
 			else:
 				if re.search(r"\bmatch\b", classes):
 					if filter_comp is None or filter_comp == current_comp:
-						team_home = element.find( "div[@class='team-name team-name-home']" )
-						team_away = element.find( "div[@class='team-name team-name-away']" )
+						team_home = element.find("div[@class='team-name team-name-home']")
+						team_away = element.find("div[@class='team-name team-name-away']")
 						if team_home is not None and team_away is not None:
 							team_home = team_home.text
 							team_away = team_away.text
@@ -37,4 +37,3 @@ def do_redirect(html, filter_date, filter_comp, filter_team):
 								if filter_team is None or (filter_team == team_home or filter_team == team_away): # full game
 									location = game_live
 	return location
-

@@ -29,7 +29,7 @@ url = "https://livecenter.sportschau.de"
 
 
 def fetch_html(date):
-	return requests.get( url+"/dn"+date ).text
+	return requests.get(f"{url}/dn{date}").text
 
 
 @app.route('/', methods=['GET'])
@@ -43,17 +43,16 @@ def podcast():
 	filter_date = flask_request.args.get("date", default=datetime.date.today().strftime("%Y-%m-%d"), type=str)
 	filter_comp = flask_request.args.get("comp", default=None, type=str)
 	filter_team = flask_request.args.get("team", default=None, type=str)
-
 	html = fetch_html(filter_date)
 	xml = do_podcast(flask_request.url, url, html, podcast_title, filter_date, filter_comp, filter_team)
 	return flask_response(xml, mimetype='text/xml')
+
 
 @app.route('/livestreams/redirect', methods=['GET'])
 def redirect():
 	filter_date = flask_request.args.get("date", default=datetime.date.today().strftime("%Y-%m-%d"), type=str)
 	filter_comp = flask_request.args.get("comp", default=None, type=str)
 	filter_team = flask_request.args.get("team", default=None, type=str)
-
 	html = fetch_html(filter_date)
 	location = do_redirect(html, filter_date, filter_comp, filter_team)
 	if location is None:
@@ -63,5 +62,6 @@ def redirect():
 
 if __name__ == '__main__':
 	app.run(host='127.0.0.1', port=8888, debug=True)
+
 # [END gae_python3_app]
 # [END gae_python39_app]
