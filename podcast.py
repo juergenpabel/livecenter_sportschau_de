@@ -19,14 +19,13 @@ def do_podcast(self, url, html, podcast_title, filter_date, filter_comp, filter_
 	fg.podcast.itunes_category("Sports")
 	fg.description(f"Applied filters: date={filter_date} competition={filter_comp} team={filter_team}")
 	fg.link(href=self, rel="self")
-
 	gameplan = lxml.html.fromstring(html).find_class("module-gameplan")
 	pubdate = formatdate(float(datetime.datetime.now().replace(hour=0,minute=0,second=0,microsecond=0).strftime('%s')), localtime=True)
 
 	current_comp = None
 	current_round = None
 	current_game = None
-	for element in gameplan[0].find("div"):
+	for element in gameplan[0].find("ul"):
 		classes = element.get("class")
 		if re.search(r"\bcompetition-head\b", classes):
 			current_comp = element.find(".//img").get("title")
