@@ -11,7 +11,7 @@ def do_redirect(html, filter_date, filter_comp, filter_team):
 	location = None
 
 	gameplan = lxml.html.fromstring(html).find_class("module-gameplan")
-	for element in gameplan[0].find("div"):
+	for element in gameplan[0].find("ul"):
 		if location is None:
 			classes = element.get("class")
 			if re.search(r"\bcompetition-head\b", classes):
