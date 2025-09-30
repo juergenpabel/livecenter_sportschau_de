@@ -30,12 +30,12 @@ def do_podcast(self, url, html, podcast_title, filter_date, filter_comp, filter_
 		if re.search(r"\bcompetition-head\b", classes):
 			current_comp = element.find(".//img").get("title")
 		if re.search(r"\bround-head\b", classes):
-			current_round = element.find(".//div[@class='match-round']").text
+			current_round = element.find(".//h6").text
 		if re.search(r"\bactivity-head\b", classes):
 			if filter_comp is None or filter_comp == current_comp:
-				if (filter_team is None or filter_team.lower() == 'konferenz') and element.find(".//div[@class='match-activity']") is not None: # conference
-					conf_name = element.find(".//div[@class='match-activity']").get("data-audiolivestream_title")
-					conf_live = element.find(".//div[@class='match-activity']").get("data-audiolivestream")
+				if (filter_team is None or filter_team.lower() == 'konferenz'):
+					conf_name = element.get("data-audiolivestream_title")
+					conf_live = element.get("data-audiolivestream")
 					conf_info = element.find(".//a[@class='hs-conference-link']").get("href")
 					if conf_name and conf_live and conf_info:
 						fe = fg.add_entry()
